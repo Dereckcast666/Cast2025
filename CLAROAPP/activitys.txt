@@ -1,0 +1,1036 @@
+#ARCHIVOS XML
+//ANDROID MANIFEST
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.claro">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Claro"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Claro">
+
+        <!-- Actividad principal de inicio de sesión -->
+        <activity
+            android:name=".iniciodesesion"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Otras actividades -->
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".paquetes" android:exported="false" />
+        <activity android:name=".lonuevo" android:exported="false" />
+        <activity android:name=".Contacto" android:exported="false" />
+        <activity android:name=".PromocionesActivity" android:exported="false" />
+
+    </application>
+
+</manifest>
+
+
+
+#ACTIVITY CONTACTANO
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0033A0"
+    tools:context=".contacto">
+
+<ImageView
+android:id="@+id/bannerImage"
+android:layout_width="0dp"
+android:layout_height="180dp"
+android:contentDescription="Banner de recarga"
+android:scaleType="fitCenter"
+    android:src="@drawable/per"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+android:id="@+id/textGrande"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:fontFamily="@font/cast"
+android:text="No te quedes con la duda"
+android:textSize="22sp"
+android:textColor="#FFFFFF"
+android:gravity="center"
+android:padding="16dp"
+app:layout_constraintTop_toBottomOf="@id/bannerImage"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+android:id="@+id/textClaroAtiende"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:fontFamily="@font/cast"
+android:text="TIGO TE ATIENDE"
+android:textSize="20sp"
+android:textColor="#FFFFFF"
+android:gravity="center"
+android:padding="16dp"
+app:layout_constraintTop_toBottomOf="@id/textGrande"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
+
+<Button
+android:id="@+id/btnContacto"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="32dp"
+android:layout_marginHorizontal="32dp"
+android:backgroundTint="#40C4FF"
+    android:fontFamily="@font/cast"
+    android:text="Comunicate con nosotros 📞"
+    android:textColor="#000000"
+    android:textSize="18sp"
+    android:contentDescription="Botón para contactar a Tigo"
+    app:layout_constraintTop_toBottomOf="@id/textClaroAtiende"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+#ACTIVITY LO NUEVO
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA"
+    tools:context=".lonuevo">
+
+    <!-- Título -->
+    <TextView
+        android:fontFamily="@font/cast"
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Selecciona tu método de pago"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Tarjeta Débito -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDebit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_debit_card"
+                app:tint="#3B82F6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta de Débito"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta Crédito -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCredit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/cardDebit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/credito"
+                app:tint="#10B981" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta de Crédito"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón Continuar -->
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Continuar"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2563EB"
+        android:textAllCaps="false"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/cardCredit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Formulario tarjeta -->
+    <LinearLayout
+        android:id="@+id/formTarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnContinue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/editNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del titular"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:backgroundTint="#888888"/>
+
+        <EditText
+            android:id="@+id/editNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de tarjeta"
+            android:inputType="number"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#888888"/>
+
+        <EditText
+            android:id="@+id/editVencimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Vencimiento (MM/AA)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#888888"/>
+
+        <EditText
+            android:id="@+id/editCVV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CVV"
+            android:inputType="numberPassword"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#888888"/>
+
+        <Button
+            android:id="@+id/btnPagar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pagar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#16A34A"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+#MAIN ACTIVITY
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#D90C0C">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0B25E6"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado rojo -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#B2EBF2"
+                android:backgroundTint="#2196F3">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/cast"
+                    android:text="TIGO"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Imagen/banner -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Banner MiClaro"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tigo" />
+
+            <!-- Botón combinado de servicios -->
+            <Button
+                android:id="@+id/btnServicios"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/white"
+                android:ellipsize="end"
+                android:fontFamily="@font/cast"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="SERVICIOS INGRESA AQUÍ"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <!-- Fila de botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnPromocionesGrid"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cast"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="Promociones"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnContactanos"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cast"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="Servicio"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <!-- Segunda fila de botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnLoNuevo"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/cast"
+                    android:text="Método de pago"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <!-- Espacio libre -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+#ACTIVITY PROMOCIONES
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1EC0E9"
+    android:padding="16dp"
+    tools:context=".PromocionesActivity">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/btnVerPromociones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:text="PROMOCIONES DISPONIBLES"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Texto del profesor -->
+    <TextView
+        android:id="@+id/profe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:text="POR SER DÍA DEL MILITAR"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnVerPromociones" />
+
+    <!-- Promo 1 -->
+    <TextView
+        android:id="@+id/promo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:text="15 Días de recarga por Q7"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profe" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/cast"
+        android:text="Comprar"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/promo1" />
+
+    <!-- Promo 2 -->
+    <TextView
+        android:id="@+id/promo120gb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:text="120 MEGAS POR Q45 SOLO POR JULIO 🔥🔥🔥"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn2" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/cast"
+        android:text="Comprar"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/promo120gb" />
+
+    <!-- Imagen inferior -->
+    <ImageView
+        android:id="@+id/bannerPromo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+    android:layout_marginTop="44dp"
+    android:contentDescription="Banner Promo"
+    android:adjustViewBounds="true"
+    android:scaleType="fitCenter"
+    android:src="@drawable/maria"
+    app:layout_constraintTop_toBottomOf="@id/btn1"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+#activity inicio sesion
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:backgroundTint="#03A9F4"
+    tools:ignore="ExtraText">
+
+    <!-- Texto de bienvenida -->
+    <TextView
+        android:id="@+id/txtHola"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:text="¡Bienvenido!"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtInstrucciones"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Inicia sesión para continuar"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtHola" />
+
+    <!-- Campo de correo -->
+    <EditText
+        android:id="@+id/btnusu"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="12dp"
+        android:background="@null"
+        android:backgroundTint="@color/white"
+        android:backgroundTintMode="src_in"
+        android:drawablePadding="10dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center_vertical"
+        android:hint="Correo electrónico"
+        android:importantForAccessibility="yes"
+        android:inputType="textEmailAddress"
+        android:outlineProvider="background"
+        android:paddingHorizontal="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtInstrucciones"
+        app:layout_constraintWidth_percent="0.85" />
+
+    <!-- Campo de contraseña -->
+    <EditText
+        android:id="@+id/btncon"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:backgroundTint="#444444"
+        android:elevation="4dp"
+        android:fontFamily="@font/cast"
+        android:gravity="center_vertical"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:outlineProvider="background"
+        android:paddingHorizontal="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnusu"
+        app:layout_constraintWidth_percent="0.85"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#0033A0"
+        android:elevation="6dp"
+        android:fontFamily="@font/cast"
+        android:stateListAnimator="@null"
+        android:text="Ingresar"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:contentDescription="Botón para ingresar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btncon"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+#activity paquetes
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1"
+    tools:context=".paquetes">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#3F51B5"
+        android:backgroundTint="#3F51B5"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Tarjeta 1: Paquete 2GB -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/five" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paquete 2GB"
+                            android:textColor="#212121"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Válido por 5 días"
+                            android:textColor="#757575"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Q15.00"
+                            android:textColor="#009688"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnComprar1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#D50000"
+                        android:text="Comprar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tarjeta 2: Paquete 10GB -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ten"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paquete 10GB"
+                            android:textColor="#212121"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Válido por 15 días"
+                            android:textColor="#757575"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Q50.00"
+                            android:textColor="#009688"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnComprar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#1976D2"
+                        android:text="Comprar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tarjeta 3: Paquete Ilimitado -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/vip"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paquete Ilimitado"
+                            android:textColor="#212121"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Válido por 30 días"
+                            android:textColor="#757575"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Q100.00"
+                            android:textColor="#009688"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnComprar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#388E3C"
+                        android:text="Comprar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+#activity servicios fijos
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4CAF50"
+    android:backgroundTint="#8BC34A"
+    tools:context=".serviciosfijos">
+
+
+    <!-- Opcional: hace que el fondo sea un poco más transparente -->
+
+
+    <ImageView
+        android:id="@+id/fondo_fijo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/olmo"
+        tools:layout_editor_absoluteX="-60dp"
+        tools:layout_editor_absoluteY="173dp" />
+
+    <TextView
+        android:id="@+id/internetF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EF3A3A"
+        android:fontFamily="@font/cast"
+        android:text="Internet Fijo"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/serviciosbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EF3A3A"
+        android:fontFamily="@font/cast"
+        android:text="Servicio al Cliente"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="404dp" />
+
+    <TextView
+        android:id="@+id/servicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EF3A3A"
+        android:fontFamily="@font/cast"
+        android:text="SERVICIOS"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <TextView
+        android:id="@+id/servicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EF3A3A"
+        android:fontFamily="@font/cast"
+        android:text="FIJOS"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <TextView
+        android:id="@+id/Tclaro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EF3A3A"
+        android:fontFamily="@font/cast"
+        android:text="Claro TV📡"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+
+    <Button
+        android:id="@+id/clarotvBTN"
+        android:layout_width="254dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="172dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/cast"
+        android:text="Detalles"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="InvalidId,MissingConstraints"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/wifiBTN"
+        android:layout_width="254dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="168dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/cast"
+        android:text="Detalles"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="InvalidId,MissingConstraints"
+        tools:layout_editor_absoluteY="286dp" />
+
+
+    <Button
+        android:id="@+id/atencionBTN"
+        android:layout_width="254dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="172dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/cast"
+        android:text="Detalles"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="InvalidId,MissingConstraints"
+        tools:layout_editor_absoluteY="448dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:contentDescription="Banner MiClaro"
+        android:scaleType="centerCrop"
+        android:src="@drawable/qr"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-10dp"
+        tools:layout_editor_absoluteY="535dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

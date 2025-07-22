@@ -1,0 +1,399 @@
+#METODOS DE PAGO 
+KT
+package com.example.claro
+
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import android.widget.*
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class lonuevo : AppCompatActivity() {
+
+    private lateinit var cardDebit: CardView
+    private lateinit var cardCredit: CardView
+    private lateinit var btnContinue: Button
+    private lateinit var formTarjeta: LinearLayout
+    private lateinit var editNombre: EditText
+    private lateinit var editNumero: EditText
+    private lateinit var editVencimiento: EditText
+    private lateinit var editCVV: EditText
+    private lateinit var btnPagar: Button
+
+    private var selectedPaymentMethod: PaymentMethod? = null
+
+    enum class PaymentMethod {
+        DEBIT, CREDIT
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_lonuevo)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        cardDebit = findViewById(R.id.cardDebit)
+        cardCredit = findViewById(R.id.cardCredit)
+        btnContinue = findViewById(R.id.btnContinue)
+
+        // Nuevos campos para datos de tarjeta
+        formTarjeta = findViewById(R.id.formTarjeta)
+        editNombre = findViewById(R.id.editNombre)
+        editNumero = findViewById(R.id.editNumero)
+        editVencimiento = findViewById(R.id.editVencimiento)
+        editCVV = findViewById(R.id.editCVV)
+        btnPagar = findViewById(R.id.btnPagar)
+
+        updateSelection(null)
+
+        cardDebit.setOnClickListener {
+            updateSelection(PaymentMethod.DEBIT)
+        }
+
+        cardCredit.setOnClickListener {
+            updateSelection(PaymentMethod.CREDIT)
+        }
+
+        btnContinue.setOnClickListener {
+            if (selectedPaymentMethod == null) {
+                Toast.makeText(this, "Por favor selecciona un método de pago", Toast.LENGTH_SHORT).show()
+            } else {
+                formTarjeta.visibility = View.VISIBLE
+            }
+        }
+
+        btnPagar.setOnClickListener {
+            val nombre = editNombre.text.toString()
+            val numero = editNumero.text.toString()
+            val vencimiento = editVencimiento.text.toString()
+            val cvv = editCVV.text.toString()
+
+            if (nombre.isEmpty() || numero.isEmpty() || vencimiento.isEmpty() || cvv.isEmpty()) {
+                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Pago procesado correctamente", Toast.LENGTH_LONG).show()
+                // Aquí puedes continuar la lógica para enviar los datos
+            }
+        }
+    }
+
+    private fun updateSelection(selection: PaymentMethod?) {
+        selectedPaymentMethod = selection
+
+        if (selection == PaymentMethod.DEBIT) {
+            cardDebit.setCardBackgroundColor(Color.parseColor("#DBEAFE")) // azul claro
+            setCardTextColor(cardDebit, Color.parseColor("#2563EB"))      // azul oscuro texto
+            cardCredit.setCardBackgroundColor(Color.WHITE)
+            setCardTextColor(cardCredit, Color.parseColor("#222222"))
+        } else if (selection == PaymentMethod.CREDIT) {
+            cardCredit.setCardBackgroundColor(Color.parseColor("#D1FAE5")) // verde claro
+            setCardTextColor(cardCredit, Color.parseColor("#059669"))      // verde oscuro texto
+            cardDebit.setCardBackgroundColor(Color.WHITE)
+            setCardTextColor(cardDebit, Color.parseColor("#222222"))
+        } else {
+            cardDebit.setCardBackgroundColor(Color.WHITE)
+            cardCredit.setCardBackgroundColor(Color.WHITE)
+            setCardTextColor(cardDebit, Color.parseColor("#222222"))
+            setCardTextColor(cardCredit, Color.parseColor("#222222"))
+        }
+
+        // Ocultar formulario si cambian de opción
+        formTarjeta.visibility = View.GONE
+    }
+
+    private fun setCardTextColor(card: CardView, color: Int) {
+        val linearLayout = card.getChildAt(0)
+        if (linearLayout is LinearLayout) {
+            val tv = linearLayout.getChildAt(1)
+            if (tv is TextView) {
+                tv.setTextColor(color)
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+#INICIO DE SESION KT
+package com.example.claro
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class iniciodesesion : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_iniciodesesion)
+
+        // Declaraciones
+        val usuario = findViewById<EditText>(R.id.btnusu)
+        val clave = findViewById<EditText>(R.id.btncon)
+        val boton = findViewById<Button>(R.id.btnEntrar)
+
+        boton.setOnClickListener {
+            val user = usuario.text.toString()
+            val cont = clave.text.toString()
+
+            
+            if (user.isNotEmpty() && cont.isNotEmpty()) {
+                
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Completa ambos campos", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
+
+#CONTACTANOS KT 
+package com.example.claro
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class Contacto : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_contacto)
+
+        val btnContacto = findViewById<Button>(R.id.btnContacto)
+
+        btnContacto.setOnClickListener {
+            Toast.makeText(this, "Pronto nos comunicaremos con usted...", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+
+#MAIN ACTIVITY KT
+package com.example.claro
+
+import android.app.AlertDialog
+import android.content.Intent
+import android.media.MediaPlayer
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var mediaPlayer: MediaPlayer
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Inicializar sonido
+        mediaPlayer = MediaPlayer.create(this, R.raw.click)
+
+        // Referencias a los botones
+        val btnServicios = findViewById<Button>(R.id.btnServicios)
+        val btnPromociones = findViewById<Button>(R.id.btnPromocionesGrid)
+        val btnContactanos = findViewById<Button>(R.id.btnContactanos)
+        val btnLoNuevo = findViewById<Button>(R.id.btnLoNuevo)
+
+        // Mostrar menú de servicios móviles
+        btnServicios.setOnClickListener {
+            playSound()
+            mostrarMenuServicios()
+        }
+
+        // Abrir PromocionesActivity
+        btnPromociones.setOnClickListener {
+            playSound()
+            val intent = Intent(this, PromocionesActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        btnContactanos.setOnClickListener {
+            playSound()
+            val intent = Intent(this, Contacto::class.java)
+            startActivity(intent)
+        }
+
+        // Abrir Método de pago (lonuevo.kt)
+        btnLoNuevo.setOnClickListener {
+            playSound()
+            val intent = Intent(this, lonuevo::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun mostrarMenuServicios() {
+        val opciones = arrayOf(
+            "1. Consultar saldo",
+            "2. Comprar paquetes",
+            "3. Activar roaming",
+            "4. Ver historial de consumo"
+        )
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Selecciona un servicio")
+        builder.setItems(opciones) { _, which ->
+            playSound()
+            when (which) {
+                0 -> Toast.makeText(this, "Actualmente no cuenta con saldo disponible.", Toast.LENGTH_SHORT).show()
+                1 -> startActivity(Intent(this, paquetes::class.java))
+                2 -> Toast.makeText(this, "Roaming activado correctamente", Toast.LENGTH_SHORT).show()
+                3 -> Toast.makeText(this, "No tienes historial de consumo", Toast.LENGTH_SHORT).show()
+            }
+        }
+        builder.show()
+    }
+
+    private fun playSound() {
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.stop()
+            mediaPlayer.prepare()
+        }
+        mediaPlayer.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
+    }
+}
+
+
+#PAQUETES KT
+package com.example.claro
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import android.widget.Button
+
+class paquetes : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_paquetes)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Listeners para los botones
+        val btn1 = findViewById<Button>(R.id.btnComprar1)
+        val btn2 = findViewById<Button>(R.id.btnComprar2)
+        val btn3 = findViewById<Button>(R.id.btnComprar3)
+
+        val intent = Intent(this, lonuevo::class.java)
+
+        btn1.setOnClickListener { startActivity(intent) }
+        btn2.setOnClickListener { startActivity(intent) }
+        btn3.setOnClickListener { startActivity(intent) }
+    }
+}
+
+
+#PROMOCIONES KT 
+
+package com.example.claro
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+
+class PromocionesActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_promociones)
+
+        val btn1 = findViewById<Button>(R.id.btn1)
+        val btn2 = findViewById<Button>(R.id.btn2)
+
+        // Al tocar "Comprar", se abre la pantalla de método de pago (lonuevo.kt)
+        btn1.setOnClickListener {
+            val intent = Intent(this, lonuevo::class.java)
+            // Puedes pasar datos si quieres, como el nombre de la promoción
+            intent.putExtra("promo", "15 días de recarga por Q7")
+            startActivity(intent)
+        }
+
+        btn2.setOnClickListener {
+            val intent = Intent(this, lonuevo::class.java)
+            intent.putExtra("promo", "120 MB por Q4.50")
+            startActivity(intent)
+        }
+    }
+}
+ #SERVICIOS FIJOS KT
+package com.example.claro
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+
+class ServiciosFijos : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_serviciosfijos)
+
+        val btnClaroTv = findViewById<Button>(R.id.clarotvBTN)
+        val btnInternet = findViewById<Button>(R.id.wifiBTN)
+        val btnAtencion = findViewById<Button>(R.id.atencionBTN)
+
+        // Claro TV
+        btnClaroTv.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Claro TV 📡")
+                .setMessage("Disfruta más de 100 canales HD, incluye guía interactiva, canales premium y control parental.")
+                .setPositiveButton("Cerrar", null)
+                .show()
+        }
+
+        // Internet Fijo
+        btnInternet.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Internet Fijo 🌐")
+                .setMessage("Navega con velocidades de hasta 50 Mbps. Planes residenciales y empresariales disponibles.")
+                .setPositiveButton("Cerrar", null)
+                .show()
+        }
+
+        // Servicio al Cliente → ir a pantalla de contacto
+        btnAtencion.setOnClickListener {
+            val intent = Intent(this, Contacto::class.java)
+            startActivity(intent)
+        }
+    }
+}
