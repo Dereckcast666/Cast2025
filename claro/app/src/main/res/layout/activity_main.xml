@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#D90C0C">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C3382D"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado rojo -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#B41818"
+                android:backgroundTint="#F03636">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/cast"
+                    android:text="MiClaro"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Imagen/banner -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Banner MiClaro"
+                android:scaleType="centerCrop"
+                android:src="@drawable/c" />
+
+            <!-- Botón combinado de servicios -->
+            <Button
+                android:id="@+id/btnServicios"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/white"
+                android:ellipsize="end"
+                android:fontFamily="@font/cast"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="SERVICIOS INGRESA AQUÍ"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <!-- Fila de botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnPromocionesGrid"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cast"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="Promociones"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <Button
+                    android:id="@+id/btnContactanos"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cast"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="Servicio"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <!-- Segunda fila de botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnLoNuevo"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/cast"
+                    android:text="Método de pago"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                <!-- Espacio libre -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

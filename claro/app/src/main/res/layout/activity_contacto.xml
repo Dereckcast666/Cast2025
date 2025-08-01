@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18FFFF"
+    tools:context=".contacto">
+
+    <ImageView
+        android:id="@+id/bannerImage"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:contentDescription="Banner de recarga"
+        android:scaleType="fitCenter"
+        android:src="@drawable/per"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textGrande"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="HASTA LOS GRANDES JUGADORES SON ATENDIDOS"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerImage" />
+
+    <TextView
+        android:id="@+id/textClaroAtiende"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cast"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="CLaro TE ATIENDE"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textGrande" />
+
+    <Button
+        android:id="@+id/btnContacto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#40C4FF"
+        android:contentDescription="Botón para contactar a Tigo"
+        android:fontFamily="@font/cast"
+        android:text="Comunicate con nosotros 📞"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textClaroAtiende" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
